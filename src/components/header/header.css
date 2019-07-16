@@ -1,0 +1,18 @@
+.header {
+    width: 100%;
+    height: 60px;
+    border-bottom:1px solid #ddd
+}
+.header .NavList {
+    float: right;
+    margin-right: 50px;
+}
+.header .NavList>li {
+    float: left;
+    line-height: 60px;
+    padding: 0 15px;
+    font-size: 14px;
+}
+.header .NavList>li a:hover {
+    color: #c42401;
+}
