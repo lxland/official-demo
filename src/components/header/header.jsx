@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '@/assets/css/reset.css';
 import './header.css';
 
@@ -8,8 +9,13 @@ export default class About extends React.Component {
             <div>
                 <div className='header'>
                     <ul className='NavList'>
-                        <li><a href='/'>首页</a></li>
-                        <li><a href="/about">关于我们</a></li>
+                        <li><Link to="/">首页</Link></li>
+                        <li><Link to="/about">.网址</Link></li>
+                        <li><Link to="/about">可信网站</Link></li>
+                        <li><Link to="/about">ZDNS</Link></li>
+                        <li><Link to="/about">易企秀</Link></li>
+                        <li><Link to="/about">新闻动态</Link></li>
+                        <li><Link to="/about">关于中网</Link></li>
                     </ul>
                 </div>
             </div>

@@ -10,7 +10,7 @@
 .header .NavList>li {
     float: left;
     line-height: 60px;
-    padding: 0 15px;
+    padding: 0 25px;
     font-size: 14px;
 }
 .header .NavList>li a:hover {
