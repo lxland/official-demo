@@ -1,6 +1,5 @@
-body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,input,textarea,select,hr{margin:0;padding:0;}
-body{ width: 100%; font-style:normal;font-size:12px;font-family:'Microsoft Yahei',Verdana, Arial, Helvetica, sans-serif;color:#000;}
-body, html { width: 100%; min-width: 1200px; margin: 0; padding: 0; height: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+body,html,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,input,textarea,select,hr{margin:0;padding:0;}
+body,html{ width: 100%; font-style:normal;font-size:12px;font-family:PingFangSC-Light,helvetica neue,hiragino sans gb,arial,microsoft yahei ui,microsoft yahei,simsun,sans-serif;color:#000;}
 
 ul,li{list-style:none;}
 /* 去除超链接下划线*/

@@ -1,56 +1,64 @@
-import React, {Component} from 'react';
-import Swiper from 'swiper/dist/js/swiper.js';
-import 'swiper/dist/css/swiper.min.css';
-import img1 from "@/assets/img/banner/1.jpg";
-import img2 from "@/assets/img/banner/1.jpg";
-import img3 from "@/assets/img/banner/1.jpg";
+import React,{Component} from 'react'
+import Swiper from 'swiper/dist/js/swiper.js'
+import 'swiper/dist/css/swiper.min.css'
+import axios from 'axios';
 
-class SwiperContainer extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
+class New extends Component{
+    constructor(props){
+        super(props);
+        this.state={
             list:[0,1,2,3,4,5,6]
         }
     }
-
+    
     componentDidMount() {
-        // 这里只是写死数据，一般实际项目是用接口获取数据
-        // const url = '/xxxx/xxxxx'
-        // fetch(url).then(res => res.json()).then(
-        //     (result) => {
-        //         this.setState({
-        //             list: result.list
-        //         })
-        //     },
-        //     (error) => {
-        //         this.setState({
-        //             error
-        //         });
-        //     }
-        // )
-        this.setState({
-            list: [img1, img2, img3]
-        })
+        axios.get('http://localhost:3000/banner.json').then( (response) => {
+            this.setState({
+                list: response.data.data
+            },()=>{
+                new Swiper ('.swiper-container', {
+                    loop: true,
+                    slidesPerView: 1,
+                    centeredSlides: true,
+                    autoplay: {
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    }
+                })  
+            } )
+        }).catch(e => (console.log(e)))
 
-        new Swiper('.swiper-container', {
-            slidesPerView: 3,
-            centeredSlides: true,
-            virtual: {
-                slides:this.state.list,
-            }
-        })
     }
+    render(){
+        let _self = this;
+        let slideEl = _self.state.list.map(function(s,i){
+            return (
+                <div className="swiper-slide" key={i} data-i={i}>
+                    <img src="{s}" alt=""/>
+                </div>
+            )
+        })
 
-    render() {
         return (
             <div className='new'>
                 <div className="swiper-container">
                     <div className="swiper-wrapper">
+                        {slideEl}
                     </div>
+                    <div className="swiper-pagination"></div>
+                    <div className="swiper-button-next"></div>
+                    <div className="swiper-button-prev"></div>
                 </div>
-            </div>
+            </div>           
         )
     }
 }
 
-export default SwiperContainer
+export default New;
