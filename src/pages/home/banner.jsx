@@ -3,11 +3,11 @@ import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
 import axios from 'axios';
 
-class New extends Component{
+class SwiperBanner extends Component{
     constructor(props){
         super(props);
         this.state={
-            list:[0,1,2,3,4,5,6]
+            list:[]
         }
     }
     
@@ -41,7 +41,7 @@ class New extends Component{
         let slideEl = _self.state.list.map(function(s,i){
             return (
                 <div className="swiper-slide" key={i} data-i={i}>
-                    <img src="{s}" alt=""/>
+                    <img src={s.image} alt="" title={s.title} />
                 </div>
             )
         })
@@ -61,4 +61,4 @@ class New extends Component{
     }
 }
 
-export default New;
+export default SwiperBanner;

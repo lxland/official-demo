@@ -1,0 +1,88 @@
+@border-color: #e5e5e5;
+@fcolor: #616a71;
+
+.footer {
+    float: left;
+    width: 100%;
+    padding: 30px 0 45px;
+    background-color: #ffffff;
+    border-top: 1px solid @border-color;
+    margin-top:150px;
+    color: @fcolor;
+    .fcontent {
+        width: 1200px;
+        margin:0 auto;
+        .f-section{
+            float: left;
+        }
+        .f-w-code {
+            text-align: center;
+            margin-top: 8px;
+            img {
+                width: 110px;
+            }
+        }
+        .f-contact {
+            font-size: 14px;
+            margin-top: 11px;
+            padding: 0 45px;
+            border-right: 1px solid @border-color;
+            p{
+                line-height: 26px;
+            }
+            span {
+                font-size: 18px;
+                font-style: italic;
+                font-weight: bold
+            }
+            .red{
+                color: #db4251;
+            }
+            .orange {
+                color: #ff9000;
+            }
+            .verify {
+                margin-top: 20px;
+                .kxverify{
+                    display: inline-block;
+                    margin-left: 10px;
+                }
+            }
+        }
+        .f-product-box{
+            float: right;
+            width: 730px;
+            ul {
+                float: right;
+                width: 100%;
+                li {
+                    float: left;
+                    width: 25%;
+                    text-align: center;
+                    font-size: 18px;
+                    .f-text {
+                        margin-top: 5px;
+                        border-right: 1px solid @border-color;
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                    .f-last {
+                        border:none
+                    }
+                    a {
+                        color: @fcolor;
+                    }
+                    i {
+                        font-size: 46px;
+                    }
+                }
+            }
+        }
+       
+        .f-copyright {
+            float: right;
+            margin: 16px 25px 0 38px;;
+        }
+    }
+}

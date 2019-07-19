@@ -43,6 +43,9 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
+
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
@@ -107,12 +110,25 @@ module.exports = function(webpackEnv) {
       },
     ].filter(Boolean);
     if (preProcessor) {
-      loaders.push({
-        loader: require.resolve(preProcessor),
-        options: {
-          sourceMap: isEnvProduction && shouldUseSourceMap,
-        },
-      });
+      if ( preProcessor === 'less-loader' ){
+        loaders.push({
+          loader: require.resolve(preProcessor),
+          options: {
+            sourceMap: isEnvProduction && shouldUseSourceMap,
+            javascriptEnabled: true,
+            modifyVars: {
+              "@primary-coloe" : "#1890ff"
+            }
+          },
+        });
+      } else {
+          loaders.push({
+            loader: require.resolve(preProcessor),
+            options: {
+              sourceMap: isEnvProduction && shouldUseSourceMap,
+            },
+          });
+      }
     }
     return loaders;
   };
@@ -419,6 +435,32 @@ module.exports = function(webpackEnv) {
                 modules: true,
                 getLocalIdent: getCSSModuleLocalIdent,
               }),
+            },
+            {
+              //less
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use:getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                },
+                'less-loader'
+              ),
+              sideEffects: true,
+            },
+            {
+              //less
+              test: lessModuleRegex,
+              use:getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: true,
+                  getLocalIdent: getCSSModuleLocalIdent,
+                },
+                'less-loader'
+              ),
             },
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the

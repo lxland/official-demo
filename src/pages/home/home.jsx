@@ -3,7 +3,7 @@ import './home.css';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 
-import New from "./banner";
+import SwiperBanner from "./banner";
 
 export default class Home extends Component {
     componentDidMount(){
@@ -16,7 +16,7 @@ export default class Home extends Component {
                 <Header />
                 <div className="container">
                     <div className="banner">
-                        <New />
+                        <SwiperBanner />
                     </div>
                 </div>
                 <Footer />
