@@ -6,7 +6,6 @@ import './header.css';
 export default class About extends React.Component {
     render() {
         return (
-            <div>
                 <div className='header'>
                     <ul className='NavList'>
                         <li><Link to="/">首页</Link></li>
@@ -18,7 +17,6 @@ export default class About extends React.Component {
                         <li><Link to="/about">关于中网</Link></li>
                     </ul>
                 </div>
-            </div>
         )
     }
 }
